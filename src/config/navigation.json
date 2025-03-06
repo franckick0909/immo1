@@ -1,0 +1,68 @@
+{
+  "admin": {
+    "title": "Administration",
+    "subtitle": "Gestion du système",
+    "items": [
+      {
+        "href": "/admin",
+        "label": "Vue d'ensemble",
+        "icon": "IoGrid",
+        "description": "Dashboard principal"
+      },
+      {
+        "href": "/admin/users",
+        "label": "Utilisateurs",
+        "icon": "IoPeople",
+        "description": "Gestion des utilisateurs"
+      },
+      {
+        "href": "/admin/stats",
+        "label": "Statistiques",
+        "icon": "IoBarChart",
+        "description": "Analyses et rapports"
+      },
+      {
+        "href": "/admin/settings",
+        "label": "Paramètres",
+        "icon": "IoSettingsOutline",
+        "description": "Configuration du système"
+      }
+    ]
+  },
+  "profile": {
+    "title": "Profil",
+    "subtitle": "Gérez votre compte",
+    "items": [
+      {
+        "href": "/profile",
+        "label": "Informations",
+        "icon": "IoPersonOutline",
+        "description": "Vos informations personnelles"
+      },
+      {
+        "href": "/profile/settings",
+        "label": "Paramètres",
+        "icon": "IoSettingsOutline",
+        "description": "Gérer vos préférences"
+      },
+      {
+        "href": "/profile/security",
+        "label": "Sécurité",
+        "icon": "IoShieldOutline",
+        "description": "Paramètres de sécurité"
+      },
+      {
+        "href": "/profile/notifications",
+        "label": "Notifications",
+        "icon": "IoNotificationsOutline",
+        "description": "Gérer vos notifications"
+      },
+      {
+        "href": "/profile/messages",
+        "label": "Messages",
+        "icon": "IoChatboxOutline",
+        "description": "Vos messages"
+      }
+    ]
+  }
+}
