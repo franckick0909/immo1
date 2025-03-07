@@ -120,7 +120,7 @@ export function EditEmailForm({
                 confirmer le changement.
               </p>
               <p className="text-sm text-amber-500">
-                Votre adresse email ne sera pas modifiée tant que vous n'aurez
+                Votre adresse email ne sera pas modifiée tant que vous n&apos;aurez
                 pas confirmé le changement.
               </p>
             </div>
