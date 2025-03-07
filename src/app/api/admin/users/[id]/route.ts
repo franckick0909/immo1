@@ -38,7 +38,7 @@ async function checkAdminAuth() {
 export async function PATCH(
   request: Request,
   { params }: { params: { id: string } }
-) {
+): Promise<NextResponse> {
   try {
     // Vérifier l'authentification et l'autorisation
     const authCheck = await checkAdminAuth();
