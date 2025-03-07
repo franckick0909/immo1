@@ -1,6 +1,6 @@
 import { auth } from "@/lib/auth";
 import { prisma } from "@/lib/db";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
 
 // Schéma de validation pour les données entrantes
@@ -35,10 +35,18 @@ async function checkAdminAuth() {
   return { authorized: true, currentUser };
 }
 
+type RouteParams = {
+  params: {
+    id: string;
+  };
+};
+
 export async function PATCH(
-  request: Request,
-  { params }: { params: { id: string } }
+  request: NextRequest,
+  context: RouteParams
 ): Promise<NextResponse> {
+  const { id } = context.params;
+
   try {
     // Vérifier l'authentification et l'autorisation
     const authCheck = await checkAdminAuth();
@@ -49,7 +57,7 @@ export async function PATCH(
     }
 
     // Valider l'ID utilisateur
-    if (!params.id || !/^[0-9a-fA-F]{24}$/.test(params.id)) {
+    if (!id || !/^[0-9a-fA-F]{24}$/.test(id)) {
       return new NextResponse("ID utilisateur invalide", { status: 400 });
     }
 
@@ -85,7 +93,7 @@ export async function PATCH(
 
     // Mettre à jour l'utilisateur
     const updatedUser = await prisma.user.update({
-      where: { id: params.id },
+      where: { id: id },
       data: { role, status },
       select: {
         id: true,
@@ -103,7 +111,7 @@ export async function PATCH(
       data: {
         action: "UPDATE",
         entity: "USER",
-        entityId: params.id,
+        entityId: id,
         details: {
           changes: { role, status },
         },
